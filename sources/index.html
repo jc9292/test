@@ -7,6 +7,7 @@
         <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
 <style>
 body{margin:5px;}
+a { font:18px arial; padding:10px; background:#ccc; }
 #hello, #hello section{width: 650px; height:330px;}
 #hello section{position: absolute;left:100%;}
 #hello{position: relative; overflow: hidden}
@@ -15,30 +16,6 @@ body{margin:5px;}
 #hello section:nth-child(3){background: pink;}
 #hello section:nth-child(4){background: lightgreen;}
 </style>
-<script>
-$('a').on('click', function(event) 
-{
-    event.preventDefault();
-    
-    var sectionId = $(this).attr("data-section"),
-        $toSlide= $("#hello section#"+sectionId),
-        $fromSlide= $('.active');
-        
-    if (!($toSlide.hasClass("active")))
-    {
-        
-        $fromSlide.animate({"left":"-100%"},500,'linear')
-        $toSlide.animate({"left":"0%"},500,'linear',function()
-        {    
-          $fromSlide.css("left","100%");
-          $fromSlide.removeClass("active");  
-          $toSlide.addClass("active");     
-        });
-
-    }
-
-});
-</script>
 </head>
 <body>
 <a data-section="one" href="#">ORANGE</a>
@@ -52,5 +29,30 @@ $('a').on('click', function(event)
     <section id="three">gfgfgfgf</section>
     <section id="four">gfgfgfgf</section>
 </div>
+<script>
+$('a').on('click', function(event)
+{
+    event.preventDefault();
+
+    var sectionId = $(this).attr("data-section"),
+        $toSlide= $("#hello section#"+sectionId),
+        $fromSlide= $('.active');
+
+    if (!($toSlide.hasClass("active")))
+    {
+
+        $fromSlide.animate({"left":"-100%"},500,'linear')
+        $toSlide.animate({"left":"0%"},500,'linear',function()
+        {
+          $fromSlide.css("left","100%");
+          $fromSlide.removeClass("active");
+          $toSlide.addClass("active");
+        });
+
+    }
+
+});
+</script>
 </body>
 </html>
+
