@@ -56,10 +56,12 @@ $('#m1 a').on('click', function(event) {
     $('#m1 #ml'+pgToid).addClass("msel");
     pgCid=pgToid;
 });
+$('#pg1').addEventListener( "touchstart", function(e){ onStart(e); }, false );
 function onStart ( touchEvent ) {
+  if( navigator.userAgent.match(/Android/i) ) {
     touchEvent.preventDefault();
+  }
 }
-$('section').on("touchstart", function(e){ onStart(e); });
 $('section').on('touchmove', function(e) {
         $('#log1').html(e.pageX);
         e.preventDefault();
