@@ -56,7 +56,7 @@ $('#m1 a').on('click', function(event) {
     $('#m1 #ml'+pgToid).addClass("msel");
     pgCid=pgToid;
 });
-$('section').on('mousedown', function(e) {
+$('section').on('touchstart mousedown', function(e) {
        pos1=e.pageX;
        posy1=e.pageY;
        var pos2=parseInt($(document).width());
