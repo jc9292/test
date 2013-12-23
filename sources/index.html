@@ -18,18 +18,44 @@ a { font:18px arial; padding:10px; background:#ccc; }
 </style>
 </head>
 <body>
-<a data-section="one" href="#">ORANGE</a>
-<a data-section="two" href="#">BLUE</a>
-<a data-section="three" href="#">PINK</a>
-<a data-section="four" href="#">GREEN</a>
-
+<div style="position:relative;height:40px;width:100%">
+<div style="z-index:10;position:fixed;background:#fff;height:40px;width:100%;" id="m1">
+<a data-section="1" id="ml1" class="msel" href="#">ORANGE</a>
+<a data-section="2" id="ml2" href="#">BLUE</a>
+<a data-section="3" id="ml3" href="#">PINK</a>
+<a data-section="4" id="ml4" href="#">GREEN</a>
+    </div></div>
 <div id="hello">
-    <section id="one" class="active">gfgfgfg vhjdhs vhsd hjgsdhgfshjdgfgsjhd hjsg dhfgsjf</section>
-    <section id="two">gfgfgfgf</section>
-    <section id="three">gfgfgfgf</section>
-    <section id="four">gfgfgfgf</section>
+    <section id="pg1" class="active">gfgfgfg vhjdhs vhsd hjgsdhgfshjdgfgsjhd hjsg dhfgsjf</section>
+    <section id="pg2">gfgfgfgf</section>
+        <section id="pg3">gfgfgfgf</section>
+    <section id="pg4">gfgfgfgf</section>
 </div>
 <script>
+
+var pgCid=1;
+$('#m1 a').on('click', function(event) {
+    event.preventDefault();
+    var pgToid = parseInt($(this).attr("data-section")),
+    $toSlide= $("#hello section#pg"+pgToid),
+    $fromSlide= $("#hello section#pg"+pgCid);
+    if (pgToid>pgCid) {
+        $toSlide.css("left","100%");
+        $fromSlide.animate({"left":"-100%"},500,'linear')
+        $toSlide.animate({"left":"0%"},500,'linear',function() {    
+              $fromSlide.css("left","100%");
+        });
+    } else if (pgToid<pgCid) {
+        $toSlide.css("left","-100%");
+        $fromSlide.animate({"left":"100%"},500,'linear')
+        $toSlide.animate({"left":"0%"},500,'linear',function() {    
+              $fromSlide.css("left","-100%");
+        });
+    } else { return false; }
+    $('#m1 #ml'+pgCid).removeClass("msel");
+    $('#m1 #ml'+pgToid).addClass("msel");
+    pgCid=pgToid;
+});
 $('section').on('click', function(event) {
         alert('ok click');
 }
