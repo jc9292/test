@@ -56,6 +56,20 @@ $('#m1 a').on('click', function(event) {
     $('#m1 #ml'+pgToid).addClass("msel");
     pgCid=pgToid;
 });
+$('section').on('mousedown', function(e) {
+       pos1=e.pageX;
+       posy1=e.pageY;
+       var pos2=parseInt($(document).width());
+       var start1=0;
+       var bloq1=0;
+       $('#log1').html('mouse down');
+       $(window).on('mousemove touchmove',function(e) {
+                e.preventDefault();
+                var event = window.event;
+                e=event.touches[0];
+                $('#log1').html('x='+e.pageX + '  y= ' + e.pageY);
+       });
+});
 // $('section').bind('touchmove', function(jQueryEvent) {
 //   jQueryEvent.preventDefault();
 //   var event = window.event;
