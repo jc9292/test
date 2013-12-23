@@ -66,7 +66,7 @@ $('section').on('touchstart mousedown', function(e) {
        $(window).on('mousemove touchmove',function(e) {
                 e.preventDefault();
                 var event = window.event;
-                if (event.touches[0]) { var x1=event.touches[0].pageX; } else { var x1=event.pageX; }
+                if ((typeof event.touches[0])=='undefined') { var x1=event.pageX; } else { var x1=event.touches[0].pageX; }
                 $('#log1').html('x='+x1);
        });
 });
