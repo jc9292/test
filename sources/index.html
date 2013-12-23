@@ -62,7 +62,7 @@ $('section').on('touchstart mousedown', function(e) {
        var pos2=parseInt($(document).width());
        var start1=0;
        var bloq1=0;
-       $('#log1').html('mouse down');
+       $('#log1').html('mouse down pos1='+pos1+' posy1='+posy1);
        $(window).on('mousemove touchmove',function(e) {
                 e.preventDefault();
                 var event = window.event;
