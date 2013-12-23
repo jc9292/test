@@ -24,6 +24,7 @@ a { font:18px arial; padding:10px; background:#ccc; }
 <a data-section="2" id="ml2" href="#">BLUE</a>
 <a data-section="3" id="ml3" href="#">PINK</a>
 <a data-section="4" id="ml4" href="#">GREEN</a>
+<div id=log1></div>
     </div></div>
 <div id="hello">
     <section id="pg1" class="active">gfgfgfg vhjdhs vhsd hjgsdhgfshjdgfgsjhd hjsg dhfgsjf</section>
@@ -55,7 +56,9 @@ $('#m1 a').on('click', function(event) {
     $('#m1 #ml'+pgToid).addClass("msel");
     pgCid=pgToid;
 });
-$('section').html('toto');
+$('section').on('mousemove', function(e) {
+        $('#log1').html(e.pageX);
+});
 </script>
 </body>
 </html>
