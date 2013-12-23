@@ -56,7 +56,7 @@ $('#m1 a').on('click', function(event) {
     $('#m1 #ml'+pgToid).addClass("msel");
     pgCid=pgToid;
 });
-$(window).bind('touchmove', function(jQueryEvent) {
+$('section').bind('touchmove', function(jQueryEvent) {
    jQueryEvent.preventDefault();
    var event = window.event;
    $('#log1').html('x='+event.touches[0].pageX + '  y= ' + event.touches[0].pageY);
