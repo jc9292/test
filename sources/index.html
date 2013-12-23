@@ -30,29 +30,9 @@ a { font:18px arial; padding:10px; background:#ccc; }
     <section id="four">gfgfgfgf</section>
 </div>
 <script>
-$('a').on('click', function(event)
-{
-    event.preventDefault();
-
-    var sectionId = $(this).attr("data-section"),
-        $toSlide= $("#hello section#"+sectionId),
-        $fromSlide= $('.active');
-
-    if (!($toSlide.hasClass("active")))
-    {
-
-        $fromSlide.animate({"left":"-100%"},500,'linear')
-        $toSlide.animate({"left":"0%"},500,'linear',function()
-        {
-          $fromSlide.css("left","100%");
-          $fromSlide.removeClass("active");
-          $toSlide.addClass("active");
-        });
-
-    }
-
-});
+$('section').on('click', function(event) {
+        alert('ok click');
+}
 </script>
 </body>
 </html>
-
